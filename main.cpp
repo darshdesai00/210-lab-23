@@ -13,6 +13,22 @@ void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 int main_menu();
 
+// menu function
+ int main_menu(){
+    int choice = 0;
+
+     {
+    cout << endl;
+    cout << "*** GOAT MANAGER 3001 ***" << endl;
+    cout << " [1] Add a goat" << endl;
+    cout << " [2] Delete a goat" << endl;
+    cout <<
+    }
+ }
+
+
+
+// main funntion
 int main() {
     srand(time(0));
     bool again;
