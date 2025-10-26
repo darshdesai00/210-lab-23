@@ -60,11 +60,28 @@ void display_trip(list<Goat> trip) {
     for (const Goat &g : trip) {
         cout << "[" << i++ << "] "
              << g.get_name() << " (" << g.get_color()
-             << ", age " << get_age() << ")" << endl;
+             << ", age " << g.get_age() << ")" << endl;
     }
 }
 
+// basically lets you choose which goat you want to delete later
+int select_goat(list<Goat> trip) {
+    display_trip(trip);
+    if (trip.empty()) return -1;
 
+    cout << "Enter goat number to delete: ";
+    int num;
+    cin >> num;
+    return num;
+}
+
+// adding delete goat func
+void delte_goat(list<Goat> &trip){
+    if (trip.empty()){
+        cout << "No goats to delete.
+
+
+}
 
 // main function
 int main() {
