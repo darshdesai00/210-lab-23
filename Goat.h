@@ -22,8 +22,18 @@ public:
     }
 
     //constructor 2: names and age
-    Goat(string n, int a)
-    
+    Goat(string n, int a) {
+        name = n;
+        age = a;
+        color = "";
+    }
+
+    //constructor 3: name, age and color
+    Goat(string n, int a, string c) {
+        name = n;
+        age = a;
+        color = c;
+    }
 
 
     // setters and getters
@@ -35,6 +45,7 @@ public:
     string get_color() const        { return color; }
 
     // write overloaded < operator for the std::list
+    
 };
 
 #endif
