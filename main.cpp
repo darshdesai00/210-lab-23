@@ -32,8 +32,17 @@ int main_menu() {
         }
     } while (choice < 1 || choice > 4);
 
-    return choice;   // ✅ END OF main_menu()
-}                    // ← you were missing this brace!
+    return choice;   // was missing this brace "checked"
+}                    
+
+void add_goat(list<Goat> &trip, string names[], string colors[]) {
+    // beloe creates a random goat using arrays
+    string n = names[rand() % SZ_NAMES];
+    string c = colors[rand() % SZ_COLORS];
+    int a = rand() % MAX_AGE + 1;
+
+    
+
 
 // main function
 int main() {
