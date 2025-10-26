@@ -81,7 +81,7 @@ void delete_goat(list<Goat> &trip) {
         cout << "No goats to delete." << endl;
         return;
     }
-
+    
     int num = select_goat(trip);
     if (num < 1 || num > trip.size()) {
         cout << "Invalid goat number." << endl;
