@@ -22,10 +22,17 @@ int main_menu();
     cout << "*** GOAT MANAGER 3001 ***" << endl;
     cout << " [1] Add a goat" << endl;
     cout << " [2] Delete a goat" << endl;
-    cout <<
-    }
- }
+    cout << " [3] Lists goats" << endl;
+    cout << " [4] Quit" << endl;
+    cout << " Choice ---> " << endl;
+    cin >> choice;
 
+    if (choice < 1 || choice > 4){
+        cout << "Invalid Choice.  Try Again." << endl;
+    }
+     } while (choice < 1 || choice > 4); 
+
+     return choice;
 
 
 // main funntion
@@ -45,8 +52,13 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    
+    // this is the goat trip list
+    list<Goat> trip;
+    int choice;
 
-
+    // main menu loop
+    
 
     return 0;
 }
