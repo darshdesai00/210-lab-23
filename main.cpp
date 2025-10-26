@@ -76,12 +76,24 @@ int select_goat(list<Goat> trip) {
 }
 
 // adding delete goat func
-void delte_goat(list<Goat> &trip){
-    if (trip.empty()){
-        cout << "No goats to delete.
+void delete_goat(list<Goat> &trip) {
+    if (trip.empty()) {
+        cout << "No goats to delete." << endl;
+        return;
+    }
 
+    int num = select_goat(trip);
+    if (num < 1 || num > trip.size()) {
+        cout << "Invalid goat number." << endl;
+        return;
+    }
 
+    auto it = trip.begin();
+    advance(it, num - 1);
+    cout << "Removing " << it->get_name() << "..." << endl;
+    trip.erase(it);
 }
+
 
 // main function
 int main() {
@@ -105,26 +117,27 @@ int main() {
     list<Goat> trip;
     int choice;
 
-    // main menu loop
+    // main menu loop (Replaced cout lines)
     do {
         choice = main_menu();
+            switch (choice) {
+        case 1:
+            add_goat(trip, names, colors);
+            break;
+        case 2:
+            delete_goat(trip);
+            break;
+        case 3:
+            display_trip(trip);
+            break;
+        case 4:
+            cout << "Goodbye :)" << endl;
+            break;
+        default:
+            cout << "Invalid choice." << endl;
+    }
 
-           switch (choice) {
-            case 1: 
-                cout << "You chose to add a goat." << endl;
-                break;
-            case 2:
-                cout << "You chose to delete a goat." << endl;
-                break;
-            case 3:
-                cout << "You chose to list goats." << endl;
-                break;
-            case 4: 
-                cout << "Goodbye :)" << endl;
-        break;
-            default:
-                cout << "Invalid choice." << endl;
-        }
+           
     } while (choice != 4);
 
     return 0;
