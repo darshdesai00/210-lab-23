@@ -41,7 +41,29 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) {
     string c = colors[rand() % SZ_COLORS];
     int a = rand() % MAX_AGE + 1;
 
-    
+    // creates and add Goat object
+    Goat g(n, a, c);
+    trip.push_back(g);
+
+    cout << n << " (" << c << ", " << a << ") added to the trip!" << endl;
+}
+
+    // below is the display trip funcion
+void display_trip(list<Goat> trip) {
+    if (trip.empty()) {
+        cout << "No goats in the trip right now." << endl;
+        return;
+    }
+
+    cout << "\nCurrent goats in the trip:\n";
+    int i = 1;
+    for (const Goat &g : trip) {
+        cout << "[" << i++ << "] "
+             << g.get_name() << " (" << g.get_color()
+             << ", age " << get_age() << ")" << endl;
+    }
+}
+
 
 
 // main function
