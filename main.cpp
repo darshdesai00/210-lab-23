@@ -14,28 +14,28 @@ void display_trip(list<Goat> trip);
 int main_menu();
 
 // menu function
- int main_menu(){
+int main_menu() {
     int choice = 0;
 
-     {
-    cout << endl;
-    cout << "*** GOAT MANAGER 3001 ***" << endl;
-    cout << " [1] Add a goat" << endl;
-    cout << " [2] Delete a goat" << endl;
-    cout << " [3] Lists goats" << endl;
-    cout << " [4] Quit" << endl;
-    cout << " Choice ---> " << endl;
-    cin >> choice;
+    do {
+        cout << endl;
+        cout << "*** GOAT MANAGER 3001 ***" << endl;
+        cout << " [1] Add a goat" << endl;
+        cout << " [2] Delete a goat" << endl;
+        cout << " [3] List goats" << endl;
+        cout << " [4] Quit" << endl;
+        cout << " Choice --> ";
+        cin >> choice;
 
-    if (choice < 1 || choice > 4){
-        cout << "Invalid Choice.  Try Again." << endl;
-    }
-     } while (choice < 1 || choice > 4); 
+        if (choice < 1 || choice > 4) {
+            cout << "Invalid choice. Try again." << endl;
+        }
+    } while (choice < 1 || choice > 4);
 
-     return choice;
+    return choice;   // ✅ END OF main_menu()
+}                    // ← you were missing this brace!
 
-
-// main funntion
+// main function
 int main() {
     srand(time(0));
     bool again;
@@ -46,20 +46,38 @@ int main() {
     int i = 0;
     while (fin >> names[i++]);
     fin.close();
+
     ifstream fin1("colors.txt");
     string colors[SZ_COLORS];
     i = 0;
     while (fin1 >> colors[i++]);
     fin1.close();
 
-    
     // this is the goat trip list
     list<Goat> trip;
     int choice;
 
     // main menu loop
-    
+    do {
+        choice = main_menu();
+
+           switch (choice) {
+            case 1: 
+                cout << "You chose to add a goat." << endl;
+                break;
+            case 2:
+                cout << "You chose to delete a goat." << endl;
+                break;
+            case 3:
+                cout << "You chose to list goats." << endl;
+                break;
+            case 4: 
+                cout << "Goodbye :)" << endl;
+        break;
+            default:
+                cout << "Invalid choice." << endl;
+        }
+    } while (choice != 4);
 
     return 0;
 }
-
